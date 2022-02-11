@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-    background-color: #151515;
+    background-color: var(--font-color);
     font-family: var(--font-family);
     font-size: 14px;
 
@@ -47,6 +47,9 @@ const Input = styled.input`
     margin-bottom: 18px;
     border: 1px solid #D5D5D5;
     border-radius: 8px; 
+    :focus{
+        filter: brightness(95%);
+    }
     ::placeholder {
       color: #DBDBDB;
       font-family:  var(--font-family);
@@ -60,7 +63,7 @@ const Input = styled.input`
 const Button = styled.button`
     height: 52px;
     width: 80%;
-    background-color: var(--botton-color); 
+    background-color: var(--details-color); 
     color: #FFFFFF;
     font-family: var(--font-family);
     font-size: 21px;

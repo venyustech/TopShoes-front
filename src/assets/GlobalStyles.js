@@ -6,11 +6,10 @@ const GlobalStyles = createGlobalStyle`
    License: none (public domain)
 */
 :root{
-    --main-color: #FFFFFF;
-    --botton-color: #efa5c8;
+    --details-color: #efa5c8;
     --font-family: 'Roboto', sans-serif;
     --font-title: 'Righteous', cursive;
-    --font-color: #000;
+    --font-color:  #151515;
 
 }
 
