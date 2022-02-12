@@ -9,6 +9,7 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^4.0.3",
+    "remask": "^0.1.0-alpha.5",
     "styled-components": "^5.3.3"
   },
   "scripts": {

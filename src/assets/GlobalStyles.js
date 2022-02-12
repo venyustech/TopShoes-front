@@ -7,9 +7,10 @@ const GlobalStyles = createGlobalStyle`
 */
 :root{
     --details-color: #efa5c8;
-    --font-family: 'Roboto', sans-serif;
+    --font-family: 'Raleway', sans-serif;
     --font-title: 'Righteous', cursive;
     --font-color:  #151515;
+	--background-color: #f9f9f9;
 
 }
 

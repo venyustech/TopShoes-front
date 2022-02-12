@@ -23,7 +23,7 @@ function NavBar() {
                     </Cart>
                 </LateralMenu>
             </Container>
-            <Title>TopShoes</Title>
+            <Title><p onClick={() => navigate('/')}>TopShoes</p></Title>
             <HorizontalBar />
         </>
 
