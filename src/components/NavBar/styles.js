@@ -92,6 +92,9 @@ const HorizontalBar = styled.div`
     height: 1px;
     width: 80%;
     background-color: #000;
+    @media(max-width: 600px) {
+        width: 95%; 
+    }
 `
 const LinkStyled = styled(Link)`
    all: none;
