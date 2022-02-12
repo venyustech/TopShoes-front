@@ -33,6 +33,9 @@ const Title = styled.h1`
     color: #fff;
     font-size: 60px;
     margin-bottom: 50px;
+    p{
+        cursor: pointer;
+    }
     @media(max-width: 300px) {
         font-size: 50px;
     }

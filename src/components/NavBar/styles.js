@@ -82,6 +82,10 @@ const Title = styled.div`
     font-family: var(--font-title);
     font-size: 60px;
     color:var(--font-color);
+    background-color: var(--background-color);
+    p{
+        cursor: pointer;
+    }
 `
 const HorizontalBar = styled.div`
     margin: 0 10%;
