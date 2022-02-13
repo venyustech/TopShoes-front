@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import UserContext from '../../Providers/Auth';
 
 import { Button, Container, Input, LinkStyled, Title } from './styles';
 
 function LoginPage() {
     const { setUserToken, setUserInfos } = useContext(UserContext);
+    const navigate = useNavigate();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -40,7 +42,7 @@ function LoginPage() {
     }
     return (
         <Container>
-            <Title>TopShoes</Title>
+            <Title><p onClick={() => navigate('/')}>TopShoes</p></Title>
             <form onSubmit={handleLogin} >
                 <Input type="email"
                     onChange={(e) => setEmail(e.target.value)}

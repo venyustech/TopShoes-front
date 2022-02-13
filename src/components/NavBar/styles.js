@@ -82,12 +82,19 @@ const Title = styled.div`
     font-family: var(--font-title);
     font-size: 60px;
     color:var(--font-color);
+    background-color: var(--background-color);
+    p{
+        cursor: pointer;
+    }
 `
 const HorizontalBar = styled.div`
     margin: 0 10%;
     height: 1px;
     width: 80%;
     background-color: #000;
+    @media(max-width: 600px) {
+        width: 95%; 
+    }
 `
 const LinkStyled = styled(Link)`
    all: none;

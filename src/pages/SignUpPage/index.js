@@ -1,9 +1,12 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Button, Container, Input, LinkStyled, Title } from './styles';
 
 function SignUpPage() {
+    const navigate = useNavigate();
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -33,7 +36,7 @@ function SignUpPage() {
     }
     return (
         <Container>
-            <Title>TopShoes</Title>
+            <Title><p onClick={() => navigate('/')}>TopShoes</p></Title>
             <form onSubmit={handleLogin} >
                 <Input type="name"
                     placeholder="nome"
