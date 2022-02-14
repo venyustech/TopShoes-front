@@ -29,13 +29,12 @@ function LoginPage() {
             password: password,
         });
         promise.then(response => {
-            console.log("deu bom")
             setUserToken(response.data.token);
             setUserInfos(response.data);
             setIsLoading(false);
             setInputLoading("");
-            console.log(response.data.token)
-            alert("Você está logado ^^ aproveite suas compras")
+            alert("Você está logado ^^ aproveite suas compras");
+            navigate('/collections')
 
         })
         promise.catch((error) => {
@@ -66,12 +65,12 @@ function LoginPage() {
             </form>
             <LinkStyled to="/sign-up" > Não tem uma conta? Cadastre-se! </LinkStyled>
 
-                <Link to="/">
+            <Link to="/">
                 <Voltar >
                     Voltar
                 </Voltar>
-                </Link>
-            
+            </Link>
+
         </Container>
 
     )

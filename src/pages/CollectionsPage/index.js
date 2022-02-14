@@ -14,14 +14,13 @@ function CollectionsPage() {
         const promise = axios.get(`http://localhost:5002/api/products`)
         promise.then(response => {
             setServerItems(response.data)
-            
+
         });
-        promise.catch(error => console.log("erro#1-PlansPage: ", error.response));
+        promise.catch(error => alert("erro#1-PlansPage: ", error.response));
 
     }, [])
 
-    if (serverItems == "")
-    {
+    if (serverItems == "") {
         return (
             <div>
                 Loading...
@@ -29,38 +28,48 @@ function CollectionsPage() {
         );
     }
     else
-    return (
-        <>
-            <NavBar />
-            <Items>
+        return (
+            <>
+                <NavBar />
+                <Items>
 
-                {serverItems.map( (serverItem) =>
-                <Link to={`/collections/${serverItem.id}`}>
-                <Item>
-                    <ItemImg src={serverItem.picture}/>
-                    <Title>
-                        {serverItem.name}
-                    </Title>
-                    <Price>
-                        R$ {serverItem.price},00
-                    </Price>
-                </Item></Link>)}
+                    {serverItems.map((serverItem) =>
+                        <LinkStyled LinkStyled to={`/collections/${serverItem.id}`}>
+                            <Item>
+                                <ItemImg src={serverItem.picture} />
+                                <Title>
+                                    {serverItem.name}
+                                </Title>
+                                <Price>
+                                    R$ {serverItem.price},00
+                                </Price>
+                            </Item>
+                        </LinkStyled>
+                    )}
 
-            </Items>
-            
-        </>
-    );
+                </Items>
+
+            </>
+        );
 }
 
 export default CollectionsPage;
 
 const Items = styled.div`
-width: 1400px;
-margin: auto;
-margin-top: 50px;
-display: flex;
-flex-wrap: wrap;
-Link: {text-decoration: none;}`
+    background-color: var(--background-color);
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+`
+const LinkStyled = styled(Link)`
+    color: var(--font-color);
+    text-decoration: none;
+    cursor: pointer;
+    :focus{
+        filter: brightness(95%);
+    }
+`;
 
 const Item = styled.div`
 width: 300px;

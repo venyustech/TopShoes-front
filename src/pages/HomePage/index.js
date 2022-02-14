@@ -40,134 +40,138 @@ function HomePage() {
         const promise = axios.get(`http://localhost:5002/api/products`)
         promise.then(response => {
             setServerItems(response.data)
-            
+
         });
-        promise.catch(error => console.log("erro#1-PlansPage: ", error.response));
+        promise.catch(error => alert("erro#1-PlansPage: ", error.response));
 
     }, [])
 
-    console.log(serverItems)
 
-    if (serverItems == "")
-    {
-        return(
+    if (serverItems == "") {
+        return (
             <div>
                 Loading
             </div>
         )
     }
     else
-    return (
-        <>
-            <NavBar />
-            <Promotions>
+        return (
+            <>
+                <Container>
+                    <NavBar />
+                    <Promotions>
 
-                <OfferImg src="https://www.natalriograndedonorte.com/wp-content/uploads/2014/04/brazilfashion4.jpg" />
+                        <OfferImg src="https://www.natalriograndedonorte.com/wp-content/uploads/2014/04/brazilfashion4.jpg" />
 
-                <OfferBox>
+                        <OfferBox>
 
-                    <OfferBoxText>
-                        Menos 20%
-                        MODA DE OUTONO
-                    </OfferBoxText>
+                            <OfferBoxText>
+                                Menos 20%
+                                MODA DE OUTONO
+                            </OfferBoxText>
 
-                    <OfferLink to="collections">
-                        <OfferBoxButton>
-                            Comprar Coleção
-                        </OfferBoxButton>
-                    </OfferLink>
+                            <OfferLink to="collections">
+                                <OfferBoxButton>
+                                    Comprar Coleção
+                                </OfferBoxButton>
+                            </OfferLink>
 
-                </OfferBox>
+                        </OfferBox>
 
-            </Promotions>
+                    </Promotions>
 
-            <MidSection>
-                <BootAd>
+                    <MidSection>
+                        <BootAd>
 
-                    <OfferImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9pMJ_WfX1W4JKz2KFuFaOVDYQWzgZmwzHNw&usqp=CAU" />
+                            <OfferImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9pMJ_WfX1W4JKz2KFuFaOVDYQWzgZmwzHNw&usqp=CAU" />
 
-                    <BootAdTxt>
-                        Encontre o sapato ideal! <br></br>
-                        <OfferLink2 to="collections">
-                            COMPRAR BOTAS
-                        </OfferLink2>
-                    </BootAdTxt>
-
-
-                </BootAd>
+                            <BootAdTxt>
+                                Encontre o sapato ideal! <br></br>
+                                <OfferLink2 to="collections">
+                                    COMPRAR BOTAS
+                                </OfferLink2>
+                            </BootAdTxt>
 
 
-                <SubscribeBox>
-                    <InnerSubscribeBox>
-                        <SubscribeBoxTxt>
-                            Seja o primeiro a saber sobre as últimas tendências e nossas ofertas!
-                        </SubscribeBoxTxt>
+                        </BootAd>
 
-                        <OfferLink to="/sign-up">
-                            <SubscribeBoxButton>
-                                Se inscreva!
-                            </SubscribeBoxButton>
+
+                        <SubscribeBox>
+                            <InnerSubscribeBox>
+                                <SubscribeBoxTxt>
+                                    Seja o primeiro a saber sobre as últimas tendências e nossas ofertas!
+                                </SubscribeBoxTxt>
+
+                                <OfferLink to="/sign-up">
+                                    <SubscribeBoxButton>
+                                        Se inscreva!
+                                    </SubscribeBoxButton>
+                                </OfferLink>
+
+                            </InnerSubscribeBox>
+                        </SubscribeBox>
+                    </MidSection>
+
+                    <NewCollection>
+                        <NewCollectionHead>
+                            Suba no salto com a nossa
+                        </NewCollectionHead>
+                        <OfferLink to="/collections">
+                            <NewCollectionTxt>
+                                Nova Coleção
+                            </NewCollectionTxt>
+                            <NewCollectionOffers>
+
+                                <NewCollectionOffer>
+
+                                    <NewOfferImg src={serverItems[0].picture} />
+                                    {serverItems[0].name}<br></br>
+                                    R${serverItems[0].price}
+
+                                </NewCollectionOffer>
+
+                                <NewCollectionOffer>
+
+                                    <NewOfferImg src={serverItems[1].picture} />
+                                    {serverItems[1].name}<br></br>
+                                    R${serverItems[1].price}
+
+                                </NewCollectionOffer>
+
+                                <NewCollectionOffer>
+
+                                    <NewOfferImg src={serverItems[2].picture} />
+                                    {serverItems[2].name}<br></br>
+                                    R${serverItems[2].price}
+
+                                </NewCollectionOffer>
+
+                            </NewCollectionOffers>
                         </OfferLink>
 
-                    </InnerSubscribeBox>
-                </SubscribeBox>
-            </MidSection>
 
-            <NewCollection>
-                <NewCollectionHead>
-                    Suba no salto com a nossa
-                </NewCollectionHead>
-                <OfferLink to="/collections">
-                    <NewCollectionTxt>
-                        Nova Coleção
-                    </NewCollectionTxt>
-                    <NewCollectionOffers>
+                    </NewCollection>
 
-                        <NewCollectionOffer>
-
-                            <NewOfferImg src={serverItems[0].picture} />
-                            {serverItems[0].name}<br></br>
-                            R${serverItems[0].price}
-
-                        </NewCollectionOffer>
-
-                        <NewCollectionOffer>
-
-                            <NewOfferImg src={serverItems[1].picture} />
-                            {serverItems[1].name}<br></br>
-                            R${serverItems[1].price}
-
-                        </NewCollectionOffer>
-
-                        <NewCollectionOffer>
-
-                            <NewOfferImg src={serverItems[2].picture} />
-                            {serverItems[2].name}<br></br>
-                            R${serverItems[2].price}
-
-                        </NewCollectionOffer>
-
-                    </NewCollectionOffers>
-                </OfferLink>
-
-
-            </NewCollection>
-
-            <FooterBox>
-                2022<br></br>
-                Venyus, Gabriel e Vitor productions<br></br>
-                Driven TM
-            </FooterBox>
-        </>
-    );
+                    <FooterBox>
+                        2022<br></br>
+                        Venyus, Gabriel e Vitor productions<br></br>
+                        Driven TM
+                    </FooterBox>
+                </Container>
+            </>
+        );
 }
 
 export default HomePage;
 
+const Container = styled.div`
+    width: 100%;
+    height: 100vh;
+`
+
 const Promotions = styled.div`
 position: relative;
-height: 600px;
-width: 1000px;
+width: 80%;
 background-color: green;
 margin: auto;
 margin-top: 20px;
@@ -176,15 +180,15 @@ display: block;`
 const OfferBox = styled.div`
 position: relative;
 width: 300px;
-height: 350px;
 margin-left: 30px;
 margin-top: 30px;
+margin-bottom: 20px;
+
 display: inline-block;
 background-color: rgba(236,236,236,0.5);`
 
 const OfferBoxText = styled.div`
 width: 250px;
-height: 200px;
 margin: auto;
 margin-top: 50px;
 color: black;
@@ -217,8 +221,7 @@ z-index: 0;`
 
 const MidSection = styled.div`
 position: relative;
-width: 1000px;
-height: 300px;
+width: 80%;
 margin: auto;
 margin-top: 20px;
 display: flex;`
@@ -226,7 +229,6 @@ display: flex;`
 const BootAd = styled.div`
 position: relative;
 width: 680px;
-height: 300px;
 background-color: pink;`
 
 const BootAdTxt = styled.div`
@@ -271,7 +273,7 @@ height: 40px;
 margin: auto;
 margin-top: 20px;
 background-color: white;
-align-text: center;
+align-items: center;
 text-align: center;
 vertical-align: middle;
 line-height: 40px;
@@ -283,8 +285,7 @@ cursor: pointer;
 }`
 
 const NewCollection = styled.div`
-width: 1000px;
-height: 600px;
+width: 80%;
 background-color: lightgray;
 margin: auto;
 margin-top: 20px;
@@ -339,7 +340,8 @@ margin-top: 20px;
 width: 1000px;
 height: 100px;
 font-size: 15px;
-font-style: italic;`
+font-style: italic;
+`
 
 
 

@@ -30,8 +30,7 @@ function SignUpPage() {
 
         promise.then(response => {
             alert("Usuário cadastrado. Faça Login agora")
-            console.log(response);
-            console.log(response.data);
+            navigate('/login')
 
         })
         promise.catch(error => alert("deu ruim! tenta de novo."))
