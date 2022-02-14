@@ -62,7 +62,7 @@ function HomePage() {
             <NavBar />
             <Promotions>
 
-                <OfferImg src={salesImgs[0]} />
+                <OfferImg src="https://www.natalriograndedonorte.com/wp-content/uploads/2014/04/brazilfashion4.jpg" />
 
                 <OfferBox>
 
@@ -88,9 +88,9 @@ function HomePage() {
 
                     <BootAdTxt>
                         Encontre o sapato ideal! <br></br>
-                        <OfferLink to="collections">
+                        <OfferLink2 to="collections">
                             COMPRAR BOTAS
-                        </OfferLink>
+                        </OfferLink2>
                     </BootAdTxt>
 
 
@@ -141,9 +141,9 @@ function HomePage() {
 
                         <NewCollectionOffer>
 
-                            <NewOfferImg src={serverItems[1].picture} />
-                            {serverItems[1].name}<br></br>
-                            R${serverItems[1].price}
+                            <NewOfferImg src={serverItems[2].picture} />
+                            {serverItems[2].name}<br></br>
+                            R${serverItems[2].price}
 
                         </NewCollectionOffer>
 
@@ -305,6 +305,12 @@ font-family: "Brush Script MT";`
 const OfferLink = styled(Link)`
 text-decoration: none;
 color: black;`
+
+const OfferLink2 = styled(Link)`
+text-decoration: none;
+color: white;
+line-height: 30px;
+`
 
 
 const NewCollectionOffers = styled.div`

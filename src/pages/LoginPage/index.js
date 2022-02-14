@@ -2,6 +2,9 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import UserContext from '../../Providers/Auth';
+import styled from "styled-components";
+import { Link } from 'react-router-dom';
+
 
 import { Button, Container, Input, LinkStyled, Title } from './styles';
 
@@ -32,6 +35,7 @@ function LoginPage() {
             setIsLoading(false);
             setInputLoading("");
             console.log(response.data.token)
+            alert("Você está logado ^^ aproveite suas compras")
 
         })
         promise.catch((error) => {
@@ -61,9 +65,28 @@ function LoginPage() {
                 </Button>
             </form>
             <LinkStyled to="/sign-up" > Não tem uma conta? Cadastre-se! </LinkStyled>
+
+                <Link to="/">
+                <Voltar >
+                    Voltar
+                </Voltar>
+                </Link>
+            
         </Container>
 
     )
 }
 
 export default LoginPage;
+
+const Voltar = styled.div`
+width: 200px;
+height: 50px;
+font-size: 30px;
+font-style: italic;
+background-color: white;
+margin-top: 30px;
+line-height: 50px;
+text-align: center;
+border-radius: 10px;
+`

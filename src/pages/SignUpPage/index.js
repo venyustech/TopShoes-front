@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import styled from "styled-components";
 
 import { Button, Container, Input, LinkStyled, Title } from './styles';
 
@@ -60,9 +62,27 @@ function SignUpPage() {
                 </Button>
             </form>
             <LinkStyled to="/login" > Já possui conta? Faça login. </LinkStyled>
+
+            <Link to="/">
+                <Voltar >
+                    Voltar
+                </Voltar>
+            </Link>
         </Container>
 
     )
 }
 
 export default SignUpPage;
+
+const Voltar = styled.div`
+width: 200px;
+height: 50px;
+font-size: 30px;
+font-style: italic;
+background-color: white;
+margin-top: 30px;
+line-height: 50px;
+text-align: center;
+border-radius: 10px;
+`

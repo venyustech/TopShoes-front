@@ -9,7 +9,7 @@ import UserContext from '../../Providers/Auth';
 
 function CollectionsId() {
 
-    const { cartItems, setCartItems, contador } = useContext(UserContext);
+    const { cartItems, setCartItems, userToken } = useContext(UserContext);
 
     const { index } = useParams();
 
@@ -32,9 +32,17 @@ function CollectionsId() {
 
     function handleCart(e)
     {
-        e.preventDefault();
-        contador++;
-        setCartItems({...cartItems, contador})
+        if(userToken == null)
+        {
+            alert("Faça login antes de comprar!")
+        }
+        else
+        {
+            e.preventDefault();
+            setCartItems([...cartItems, {id: index, amount: qtd, picture: cartItems[index].picture, price: cartItems[index].price}])
+
+        }
+       
     }
 
     console.log(cartItems)
@@ -66,16 +74,22 @@ function CollectionsId() {
                     </ProductName> 
 
                     <form onSubmit={handleCart} >
-                        <input type="text"
+                        <Input type="text"
                             onChange={(e) => setQtd(e.target.value)}
                             value={qtd}
                             placeholder="Quantidade"
                             disabled={inputLoading}
                         />
-                        <button>{isLoading ?
-                            ("loading...") : ("ENTRAR")}
-                        </button>
-                    </form> 
+                        <Button>{isLoading ?
+                            ("loading...") : ("Adicionar ao Carrinho")}
+                        </Button>
+                    </form>
+
+                    <GbLink to="/collections">
+                    <GoBack>
+                        Voltar para a Coleção
+                    </GoBack>
+                    </GbLink>  
                 </RightSide>
 
 
@@ -93,7 +107,6 @@ export default CollectionsId;
 const AddProduct = styled.div`
 width: 1250px;
 height: 1000px;
-background-color: blue;
 margin: auto;
 display: flex;`
 
@@ -101,17 +114,43 @@ const AddImg = styled.img`
 width: 700px;
 height: 700px;
 margin-left: 0;
-margin-top: 0;
-background-color: yellow;`
+margin-top: 0;`
 
 const RightSide = styled.div`
 width: 500px;
 height: 700px;
-margin-left: 50px;
-background-color: yellow;`
+margin-left: 50px;`
 
 const ProductName = styled.div`
 font-style: italic;
 font-size: 30px;
 line-height: 50px;
 margin-top: 30px;`
+
+const Input = styled.input`
+width: 350px;
+height: 50px;
+margin-top: 80px;
+font-size: 30px;`
+
+const Button = styled.button`
+width: 350px;
+height: 50px;
+margin-top: 20px;
+font-size: 30px;
+background-color: yellow;`
+
+const GoBack = styled.div`
+width: 350px;
+height: 50px;
+margin-top: 250px;
+font-size: 27px;
+background-color: black;
+color: white;
+line-height: 50px;
+text-align: center;
+font-style: italic
+`
+
+const GbLink = styled(Link)`
+text-decoration: none;`
