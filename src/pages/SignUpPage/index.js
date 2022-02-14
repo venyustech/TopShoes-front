@@ -33,7 +33,11 @@ function SignUpPage() {
             navigate('/login')
 
         })
-        promise.catch(error => alert("deu ruim! tenta de novo."))
+        promise.catch(error => {
+            alert("deu ruim! tenta de novo.")
+            setIsLoading(false);
+            setInputLoading("");
+        })
     }
     return (
         <Container>

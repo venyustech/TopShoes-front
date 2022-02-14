@@ -165,6 +165,7 @@ function HomePage() {
 export default HomePage;
 
 const Container = styled.div`
+    background-color: red;
     width: 100%;
     height: 100vh;
 `

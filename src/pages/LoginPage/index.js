@@ -40,6 +40,8 @@ function LoginPage() {
         promise.catch((error) => {
             console.log(error.response);
             alert("Tenta de novo. Dados incorretos");
+            setIsLoading(false);
+            setInputLoading("");
         })
 
     }
@@ -65,11 +67,11 @@ function LoginPage() {
             </form>
             <LinkStyled to="/sign-up" > Não tem uma conta? Cadastre-se! </LinkStyled>
 
-            <Link to="/">
+            <LinkStyle to="/">
                 <Voltar >
                     Voltar
                 </Voltar>
-            </Link>
+            </LinkStyle>
         </Container>
 
     )
@@ -77,6 +79,10 @@ function LoginPage() {
 
 export default LoginPage;
 
+const LinkStyle = styled(Link)`
+text-decoration:none;
+color:black;
+`
 const Voltar = styled.div`
 width: 200px;
 height: 50px;
@@ -87,4 +93,5 @@ margin-top: 30px;
 line-height: 50px;
 text-align: center;
 border-radius: 10px;
+font-family: var(--font-family);
 `
