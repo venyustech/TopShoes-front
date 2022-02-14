@@ -10,6 +10,8 @@ import axios from 'axios';
 
 function HomePage() {
 
+    const [serverItems, setServerItems] = useState("");
+
     const NewCollectionItems = [
         {
             name: "Havaiana de pau",
@@ -27,49 +29,41 @@ function HomePage() {
             image: "https://preview.redd.it/b1wxjdayulz31.jpg?auto=webp&s=cd41a02639159916c19c1a418b5f19f82501b377"
         }]
 
-    const [count, setCount] = useState(0);
-
     const salesImgs = [
         "https://cidadedoheroi.com.br/wp-content/uploads/2021/11/Pikachu-capa.jpg",
         "https://static.wixstatic.com/media/7e1518_7a3467385d51481fb8355b45abb5fff1~mv2.jpg/v1/fill/w_1000,h_500,al_c,q_90,usm_0.66_1.00_0.01/7e1518_7a3467385d51481fb8355b45abb5fff1~mv2.jpg",
         "https://sm.ign.com/ign_br/screenshot/default/blob_bkmv.jpg"
     ]
 
-    setInterval(function () {
-
-        if (count < salesImgs.length - 1) {
-            setCount(count + 1);
-        }
-        else {
-            setCount(0);
-        }
-
-    }, 5000);
 
     useEffect(() => {
-        const promise = axios.get(`http://localhost:5003/api/products`)
+        const promise = axios.get(`http://localhost:5002/api/products`)
         promise.then(response => {
-            console.log(response.data);
+            console.log(response.data)
+            setServerItems(response.data)
+            
         });
         promise.catch(error => console.log("erro#1-PlansPage: ", error.response));
 
     }, [])
 
+    console.log(serverItems)
 
-
-
-
-
-
-
-
-
+    if (serverItems == "")
+    {
+        return(
+            <div>
+                Loading
+            </div>
+        )
+    }
+    else
     return (
         <>
             <NavBar />
             <Promotions>
 
-                <OfferImg src={salesImgs[count]} />
+                <OfferImg src={salesImgs[0]} />
 
                 <OfferBox>
 
@@ -132,24 +126,25 @@ function HomePage() {
 
                         <NewCollectionOffer>
 
-                            <NewOfferImg src={NewCollectionItems[0].image} />
-                            {NewCollectionItems[0].name}<br></br>
-                            {NewCollectionItems[0].price}
-                        </NewCollectionOffer>
-
-                        <NewCollectionOffer>
-
-                            <NewOfferImg src={NewCollectionItems[1].image} />
-                            {NewCollectionItems[1].name}<br></br>
-                            {NewCollectionItems[1].price}
+                            <NewOfferImg src={serverItems[0].picture} />
+                            {serverItems[0].name}<br></br>
+                            R${serverItems[0].price}
 
                         </NewCollectionOffer>
 
                         <NewCollectionOffer>
 
-                            <NewOfferImg src={NewCollectionItems[2].image} />
-                            {NewCollectionItems[2].name}<br></br>
-                            {NewCollectionItems[2].price}
+                            <NewOfferImg src={serverItems[1].picture} />
+                            {serverItems[1].name}<br></br>
+                            R${serverItems[1].price}
+
+                        </NewCollectionOffer>
+
+                        <NewCollectionOffer>
+
+                            <NewOfferImg src={serverItems[1].picture} />
+                            {serverItems[1].name}<br></br>
+                            R${serverItems[1].price}
 
                         </NewCollectionOffer>
 
