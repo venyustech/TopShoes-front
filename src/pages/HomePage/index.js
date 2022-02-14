@@ -59,31 +59,32 @@ function HomePage() {
             <>
                 <Container>
                     <NavBar />
-                    <Promotions>
+                    <span>
+                        <Promotions>
 
-                        <OfferImg src="https://www.natalriograndedonorte.com/wp-content/uploads/2014/04/brazilfashion4.jpg" />
+                            <OfferImg src="https://i.imgur.com/sR0D9p8.png" />
 
-                        <OfferBox>
+                            <OfferBox>
 
-                            <OfferBoxText>
-                                Menos 20%
-                                MODA DE OUTONO
-                            </OfferBoxText>
+                                <OfferBoxText>
+                                    Menos 20%
+                                    MODA DE OUTONO
+                                </OfferBoxText>
 
-                            <OfferLink to="collections">
-                                <OfferBoxButton>
-                                    Comprar Coleção
-                                </OfferBoxButton>
-                            </OfferLink>
+                                <OfferLink to="collections">
+                                    <OfferBoxButton>
+                                        Comprar Coleção
+                                    </OfferBoxButton>
+                                </OfferLink>
 
-                        </OfferBox>
+                            </OfferBox>
 
-                    </Promotions>
-
+                        </Promotions>
+                    </span>
                     <MidSection>
                         <BootAd>
 
-                            <OfferImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9pMJ_WfX1W4JKz2KFuFaOVDYQWzgZmwzHNw&usqp=CAU" />
+                            <OfferImg src="https://i.imgur.com/kHqF3JZ.png" />
 
                             <BootAdTxt>
                                 Encontre o sapato ideal! <br></br>
@@ -126,7 +127,7 @@ function HomePage() {
 
                                     <NewOfferImg src={serverItems[0].picture} />
                                     {serverItems[0].name}<br></br>
-                                    R${serverItems[0].price}
+                                    <Num>R${serverItems[0].price}</Num>
 
                                 </NewCollectionOffer>
 
@@ -134,7 +135,7 @@ function HomePage() {
 
                                     <NewOfferImg src={serverItems[1].picture} />
                                     {serverItems[1].name}<br></br>
-                                    R${serverItems[1].price}
+                                    <Num>R${serverItems[1].price}</Num>
 
                                 </NewCollectionOffer>
 
@@ -142,7 +143,7 @@ function HomePage() {
 
                                     <NewOfferImg src={serverItems[2].picture} />
                                     {serverItems[2].name}<br></br>
-                                    R${serverItems[2].price}
+                                    <Num>R${serverItems[2].price} </Num>
 
                                 </NewCollectionOffer>
 
@@ -165,17 +166,24 @@ function HomePage() {
 export default HomePage;
 
 const Container = styled.div`
+    font-family: var(--font-family);
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    background-color: var(--background-color);
+    span{
+        display: flex;
+        align-items: center;
+    }
 `
 
 const Promotions = styled.div`
 position: relative;
-width: 80%;
-background-color: green;
+width: 75%;
 margin: auto;
 margin-top: 20px;
-display: block;`
+display: block;
+background-color: blue;
+`
 
 const OfferBox = styled.div`
 position: relative;
@@ -205,6 +213,7 @@ text-align: center;
 vertical-align: middle;
 line-height: 50px;
 font-style: italic;
+margin-bottom: 10px;
 cursor: pointer;
 &:hover{
     background-color: black;
@@ -224,7 +233,9 @@ position: relative;
 width: 80%;
 margin: auto;
 margin-top: 20px;
-display: flex;`
+display: flex;
+justify-content: center;
+`
 
 const BootAd = styled.div`
 position: relative;
@@ -283,9 +294,11 @@ cursor: pointer;
     background-color: black;
     color: white;
 }`
-
+const Num = styled.div`
+font-family: 'Roboto', sans-serif;`
 const NewCollection = styled.div`
-width: 80%;
+padding: 40px 0px;
+width: 75%;
 background-color: lightgray;
 margin: auto;
 margin-top: 20px;
