@@ -39,7 +39,9 @@ function CollectionsId() {
         else
         {
             e.preventDefault();
-            setCartItems([...cartItems, {id: index, amount: qtd, picture: cartItems[index].picture, price: cartItems[index].price}])
+            setCartItems([...cartItems, {
+                id: index, 
+                stock: qtd}])
 
         }
        

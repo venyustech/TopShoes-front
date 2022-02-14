@@ -59,7 +59,8 @@ width: 1400px;
 margin: auto;
 margin-top: 50px;
 display: flex;
-flex-wrap: wrap;`
+flex-wrap: wrap;
+Link: {text-decoration: none;}`
 
 const Item = styled.div`
 width: 300px;
