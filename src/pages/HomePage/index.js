@@ -39,7 +39,6 @@ function HomePage() {
     useEffect(() => {
         const promise = axios.get(`http://localhost:5002/api/products`)
         promise.then(response => {
-            console.log(response.data)
             setServerItems(response.data)
             
         });

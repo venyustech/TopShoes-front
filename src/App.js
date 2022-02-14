@@ -24,6 +24,7 @@ export default function App() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/sign-up" element={<SignUpPage />} />
                     <Route path="/collections" element={<CollectionsPage />} />
+                    <Route path="/collections/:index" element={<CollectionsPage />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/faq" element={<FAQPage />} />
