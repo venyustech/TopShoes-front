@@ -70,7 +70,6 @@ function LoginPage() {
                     Voltar
                 </Voltar>
             </Link>
-
         </Container>
 
     )

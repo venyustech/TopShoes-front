@@ -4,6 +4,7 @@ import styled from "styled-components";
 import axios from 'axios';
 import UserContext from '../../Providers/Auth';
 import { useNavigate } from 'react-router-dom';
+import { FooterBox } from '../../components/Footer/styles';
 
 function CartPage() {
 
@@ -16,7 +17,7 @@ function CartPage() {
     let total = 0;
 
     useEffect(() => {
-        const promise = axios.get(`http://localhost:5002/api/products`)
+        const promise = axios.get(`https://top-shoes.herokuapp.com/api/products`)
         promise.then(response => {
             setServerItems(response.data)
 
@@ -31,7 +32,7 @@ function CartPage() {
 
     function handlePurchase() {
 
-        const promise = axios.put(`http://localhost:5002/api/products`, cartItems)
+        const promise = axios.put(`https://top-shoes.herokuapp.com/api/products`, cartItems)
         promise.then(response => {
             alert(`Realizada a compra!^^
             Compra no valor de: R$ ${total},00
@@ -76,6 +77,7 @@ function CartPage() {
 
                     </Total>
                 </Section>
+                <FooterBox />
             </Cont >
         );
 }

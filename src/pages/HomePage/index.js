@@ -37,7 +37,7 @@ function HomePage() {
 
 
     useEffect(() => {
-        const promise = axios.get(`http://localhost:5002/api/products`)
+        const promise = axios.get(`https://top-shoes.herokuapp.com/api/products`)
         promise.then(response => {
             setServerItems(response.data)
 

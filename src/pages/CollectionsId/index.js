@@ -6,6 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import UserContext from '../../Providers/Auth';
+import { FooterBox } from '../../components/Footer/styles';
 
 function CollectionsId() {
 
@@ -21,7 +22,7 @@ function CollectionsId() {
     const [inputLoading, setInputLoading] = useState("");
 
     useEffect(() => {
-        const promise = axios.get(`http://localhost:5002/api/products/${index}`)
+        const promise = axios.get(`https://top-shoes.herokuapp.com/api/products/${index}`)
         promise.then(response => {
             setServerItem(response.data)
 
@@ -91,6 +92,7 @@ function CollectionsId() {
 
 
                     </AddProduct>
+                    <FooterBox />
                 </Container>
             </>
         );

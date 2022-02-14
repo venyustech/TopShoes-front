@@ -1,4 +1,5 @@
 import React from 'react';
+import { FooterBox } from '../../components/Footer/styles';
 import NavBar from "../../components/NavBar"
 import { Container, ImgLogo, InfosBox, InfosWrapper, LogosWrapper, Section1, Section2 } from './styles';
 
@@ -31,6 +32,7 @@ function AboutPage() {
                 <img src="https://i.imgur.com/pMgejuc.png" alt="logo" />
                 <img src="https://i.imgur.com/QAdfs5O.png" alt="logo" />
             </LogosWrapper>
+            <FooterBox />
         </Container>
     )
 }

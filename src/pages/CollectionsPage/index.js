@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import UserContext from '../../Providers/Auth';
+import { FooterBox } from '../../components/Footer/styles';
 
 function CollectionsPage() {
 
     const { serverItems, setServerItems } = useContext(UserContext);
 
     useEffect(() => {
-        const promise = axios.get(`http://localhost:5002/api/products`)
+        const promise = axios.get(`https://top-shoes.herokuapp.com/api/products`)
         promise.then(response => {
             setServerItems(response.data)
 
@@ -48,6 +49,7 @@ function CollectionsPage() {
                     )}
 
                 </Items>
+                <FooterBox />
 
             </>
         );
