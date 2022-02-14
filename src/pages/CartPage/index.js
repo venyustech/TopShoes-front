@@ -4,7 +4,7 @@ import styled from "styled-components";
 import axios from 'axios';
 import UserContext from '../../Providers/Auth';
 import { useNavigate } from 'react-router-dom';
-import { FooterBox } from '../../components/Footer/styles';
+import Footer from '../../components/Footer';
 
 function CartPage() {
 
@@ -77,7 +77,7 @@ function CartPage() {
 
                     </Total>
                 </Section>
-                <FooterBox />
+                <Footer />
             </Cont >
         );
 }

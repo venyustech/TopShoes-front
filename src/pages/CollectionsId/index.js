@@ -7,6 +7,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import UserContext from '../../Providers/Auth';
 import { FooterBox } from '../../components/Footer/styles';
+import Footer from '../../components/Footer';
 
 function CollectionsId() {
 
@@ -92,7 +93,7 @@ function CollectionsId() {
 
 
                     </AddProduct>
-                    <FooterBox />
+                    <Footer />
                 </Container>
             </>
         );

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import UserContext from '../../Providers/Auth';
 import { FooterBox } from '../../components/Footer/styles';
+import Footer from '../../components/Footer';
 
 function CollectionsPage() {
 
@@ -49,7 +50,7 @@ function CollectionsPage() {
                     )}
 
                 </Items>
-                <FooterBox />
+                <Footer />
 
             </>
         );

@@ -3,6 +3,7 @@ import NavBar from '../../components/NavBar';
 import { mask, unMask } from "remask";
 import { Bold, Button, Container, ImgLogo, InfosBox, InfosCard, InfosWrapper, Input, InputMessage, TextMessage } from './styles';
 import { FooterBox } from '../../components/Footer/styles';
+import Footer from '../../components/Footer';
 
 function ContactPage() {
     const [name, setName] = useState('');
@@ -87,7 +88,7 @@ function ContactPage() {
                     </InfosBox>
 
                 </InfosWrapper>
-                <FooterBox />
+                <Footer />
             </Container>
         </>
     );
