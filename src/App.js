@@ -28,8 +28,6 @@ export default function App() {
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/faq" element={<FAQPage />} />
                     <Route path="/cart" element={<CartPage />} />
-
-
                 </Routes>
             </BrowserRouter>
         </UserContext.Provider>
