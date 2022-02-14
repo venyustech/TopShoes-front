@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import NavBar from '../../components/NavBar';
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import UserContext from '../../Providers/Auth';
 
 function CollectionsPage() {
 
-    const [serverItems, setServerItems] = useState("");
+    const { serverItems, setServerItems } = useContext(UserContext);
 
     useEffect(() => {
         const promise = axios.get(`http://localhost:5002/api/products`)
@@ -58,7 +59,8 @@ width: 1400px;
 margin: auto;
 margin-top: 50px;
 display: flex;
-flex-wrap: wrap;`
+flex-wrap: wrap;
+Link: {text-decoration: none;}`
 
 const Item = styled.div`
 width: 300px;

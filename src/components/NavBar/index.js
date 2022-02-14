@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Cart, Container, HorizontalBar, LateralMenu, Login, Quantity, Title } from './styles';
 import { GiShoppingBag } from 'react-icons/gi'
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../../Providers/Auth';
+
 
 
 function NavBar() {
     const navigate = useNavigate();
+    const { cartItems, setCartItems, contador } = useContext(UserContext);
 
     return (
         <>
@@ -19,7 +22,7 @@ function NavBar() {
                     <Login onClick={() => navigate('/login')}>login</Login>
                     <Cart onClick={() => navigate('/cart')}>
                         <GiShoppingBag />
-                        <Quantity>0</Quantity>
+                        <Quantity>{cartItems.length}</Quantity>
                     </Cart>
                 </LateralMenu>
             </Container>
