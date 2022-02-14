@@ -10,13 +10,17 @@ import ContactPage from "./pages/ContactPage";
 import UserContext from "./Providers/Auth";
 import FAQPage from "./pages/FAQPage";
 import CartPage from "./pages/CartPage";
+import CollectionsId from "./pages/CollectionsId";
 
 export default function App() {
     const [userToken, setUserToken] = useState(null);
     const [userInfos, setUserInfos] = useState('');
+    const [serverItems, setServerItems] = useState("");
+    const [cartItems, setCartItems] = useState([]);
+    let contador = 0;
 
     return (
-        <UserContext.Provider value={{ userToken, setUserToken, userInfos, setUserInfos }} >
+        <UserContext.Provider value={{ userToken, setUserToken, userInfos, setUserInfos, serverItems, setServerItems, cartItems, setCartItems, contador }} >
             <BrowserRouter>
                 <GlobalStyles />
                 <Routes>
@@ -24,7 +28,7 @@ export default function App() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/sign-up" element={<SignUpPage />} />
                     <Route path="/collections" element={<CollectionsPage />} />
-                    <Route path="/collections/:index" element={<CollectionsPage />} />
+                    <Route path="/collections/:index" element={<CollectionsId />} />
                     <Route path="/about" element={<AboutPage />} />
                     <Route path="/contact" element={<ContactPage />} />
                     <Route path="/faq" element={<FAQPage />} />
