@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavBar from '../../components/NavBar';
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import axios from 'axios';
+
 
 
 
@@ -33,25 +35,41 @@ function HomePage() {
         "https://sm.ign.com/ign_br/screenshot/default/blob_bkmv.jpg"
     ]
 
-    setInterval(function(){
+    setInterval(function () {
 
-        if (count < salesImgs.length-1)
-        {
-            setCount(count+1);
+        if (count < salesImgs.length - 1) {
+            setCount(count + 1);
         }
-        else
-        {
+        else {
             setCount(0);
-        } 
+        }
 
     }, 5000);
+
+    useEffect(() => {
+        const promise = axios.get(`http://localhost:5003/api/products`)
+        promise.then(response => {
+            console.log(response.data);
+        });
+        promise.catch(error => console.log("erro#1-PlansPage: ", error.response));
+
+    }, [])
+
+
+
+
+
+
+
+
+
 
     return (
         <>
             <NavBar />
             <Promotions>
 
-                <OfferImg src={salesImgs[count]}/>
+                <OfferImg src={salesImgs[count]} />
 
                 <OfferBox>
 
@@ -61,9 +79,9 @@ function HomePage() {
                     </OfferBoxText>
 
                     <OfferLink to="collections">
-                    <OfferBoxButton>
-                        Comprar Coleção
-                    </OfferBoxButton>
+                        <OfferBoxButton>
+                            Comprar Coleção
+                        </OfferBoxButton>
                     </OfferLink>
 
                 </OfferBox>
@@ -73,19 +91,19 @@ function HomePage() {
             <MidSection>
                 <BootAd>
 
-                    <OfferImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9pMJ_WfX1W4JKz2KFuFaOVDYQWzgZmwzHNw&usqp=CAU"/>
-                   
+                    <OfferImg src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9pMJ_WfX1W4JKz2KFuFaOVDYQWzgZmwzHNw&usqp=CAU" />
+
                     <BootAdTxt>
                         Encontre o sapato ideal! <br></br>
                         <OfferLink to="collections">
-                        COMPRAR BOTAS
+                            COMPRAR BOTAS
                         </OfferLink>
                     </BootAdTxt>
 
-                    
+
                 </BootAd>
 
-                
+
                 <SubscribeBox>
                     <InnerSubscribeBox>
                         <SubscribeBoxTxt>
@@ -93,9 +111,9 @@ function HomePage() {
                         </SubscribeBoxTxt>
 
                         <OfferLink to="/sign-up">
-                        <SubscribeBoxButton>
-                            Se inscreva!
-                        </SubscribeBoxButton>
+                            <SubscribeBoxButton>
+                                Se inscreva!
+                            </SubscribeBoxButton>
                         </OfferLink>
 
                     </InnerSubscribeBox>
@@ -107,35 +125,35 @@ function HomePage() {
                     Suba no salto com a nossa
                 </NewCollectionHead>
                 <OfferLink to="/collections">
-                <NewCollectionTxt>
-                    Nova Coleção
-                </NewCollectionTxt>
-                <NewCollectionOffers>
+                    <NewCollectionTxt>
+                        Nova Coleção
+                    </NewCollectionTxt>
+                    <NewCollectionOffers>
 
-                    <NewCollectionOffer>
+                        <NewCollectionOffer>
 
-                        <NewOfferImg src={NewCollectionItems[0].image}/>
-                        {NewCollectionItems[0].name}<br></br>
-                        {NewCollectionItems[0].price}
-                    </NewCollectionOffer>
+                            <NewOfferImg src={NewCollectionItems[0].image} />
+                            {NewCollectionItems[0].name}<br></br>
+                            {NewCollectionItems[0].price}
+                        </NewCollectionOffer>
 
-                    <NewCollectionOffer>
+                        <NewCollectionOffer>
 
-                        <NewOfferImg src={NewCollectionItems[1].image}/>
-                        {NewCollectionItems[1].name}<br></br>
-                        {NewCollectionItems[1].price}
-                        
-                    </NewCollectionOffer>
+                            <NewOfferImg src={NewCollectionItems[1].image} />
+                            {NewCollectionItems[1].name}<br></br>
+                            {NewCollectionItems[1].price}
 
-                    <NewCollectionOffer>
+                        </NewCollectionOffer>
 
-                        <NewOfferImg src={NewCollectionItems[2].image}/>
-                        {NewCollectionItems[2].name}<br></br>
-                        {NewCollectionItems[2].price}
-                        
-                    </NewCollectionOffer>
+                        <NewCollectionOffer>
 
-                </NewCollectionOffers>
+                            <NewOfferImg src={NewCollectionItems[2].image} />
+                            {NewCollectionItems[2].name}<br></br>
+                            {NewCollectionItems[2].price}
+
+                        </NewCollectionOffer>
+
+                    </NewCollectionOffers>
                 </OfferLink>
 
 
